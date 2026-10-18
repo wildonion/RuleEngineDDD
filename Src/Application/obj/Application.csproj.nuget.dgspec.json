@@ -1,0 +1,150 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Application\\Application.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Application\\Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\i4Twins 04\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\i4Twins 04\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "D:\\packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://git.sys.i4twins.com/api/v4/projects/3/packages/nuget/index.json": {},
+          "https://mirror-nuget.runflare.com/v3/index.json": {},
+          "https://package-mirror.liara.ir/repository/nuget/index.json": {},
+          "https://pkg.i4twins.com/repository/nuget-group/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "framework": "net8.0",
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.400"
+      },
+      "frameworks": {
+        "net8.0": {
+          "framework": "net8.0",
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\i4Twins 04\\.dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\i4Twins 04\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\i4Twins 04\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "D:\\packages": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://git.sys.i4twins.com/api/v4/projects/3/packages/nuget/index.json": {},
+          "https://mirror-nuget.runflare.com/v3/index.json": {},
+          "https://package-mirror.liara.ir/repository/nuget/index.json": {},
+          "https://pkg.i4twins.com/repository/nuget-group/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "framework": "net8.0",
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "10.0.400"
+      },
+      "frameworks": {
+        "net8.0": {
+          "framework": "net8.0",
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\i4Twins 04\\.dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

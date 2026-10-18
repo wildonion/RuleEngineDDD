@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "q3AbLRqByiY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\i4Twins 04\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://mirror-nuget.runflare.com/v3/index.json.",
+      "projectPath": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Application\\Application.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\i4Twins 04\\Desktop\\wildonion\\RuleEngineDDD\\Src\\Application\\Application.csproj",
+      "targetGraphs": []
+    }
+  ]
+}
