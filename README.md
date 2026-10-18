@@ -119,7 +119,9 @@ Src/
 │   ├── Messaging/                   ← RabbitMQ, Redis Pub/Sub, Outbox/Inbox
 │   ├── Scripting/                   ← Lua / Wasm / Rules host
 │   ├── Caching/
+│   ├── Data/
 │   ├── Search/                      ← Elasticsearch
+|   ├── Seeders/                     ← Data seeding
 │   ├── BackgroundServices/          ← Workers, Pollers, Saga coordinators
 │   └── Services/            ← HTTP clients, MessageBrokerService: IMessageBroker like RMQ impl IJobq
 
