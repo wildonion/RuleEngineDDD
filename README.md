@@ -132,3 +132,94 @@ Src/
 │   ├── Extensions/                  ← DI registration, startup
 │   └── Filters/
 ```
+
+## Example of DDD layering
+
+```cs
+//------------------------------------ controller
+[Authorize]
+[Route("[controller]")]
+public class ParameterController(
+    ICustomLogger<ParameterController> logger,
+    IParameterService parameterService
+) : BaseController
+{
+    [HttpPost("form/{workspaceId:guid}/{formId:guid}")]
+    [ProducesResponseType(typeof(DefaultResult<List<ParameterRes>>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> CreateFormParameters(
+        [FromRoute] Guid workspaceId, [FromRoute] Guid formId, [FromBody] CreateFormParameterReq body)
+    {
+        var response = await parameterService.CreateFormParameters(workspaceId, formId, body.FormParameters);
+
+        logger.Log(LogLevel.Information, "Create form parameter process completed", nameof(CreateFormParameters));
+
+        return Ok(response);
+    }
+}
+//------------------------------------ interface 
+public interface IParameterService
+{
+    Task<List<ParameterRes>> CreateFormParameters(Guid workspaceId, Guid formId, List<CreateParameterReq> data);
+}
+//------------------------------------ service  
+public sealed class ParameterService(
+    IReportParameterService reportParameterService,
+    ICustomLogger<ParameterService> logger,
+    ISubFormService subFormService,
+    IRoleService roleService,
+    IUnitOfWork unitOfWork
+) : IParameterService
+{
+    public async Task<List<ParameterRes>> CreateFormParameters(
+        Guid workspaceId, Guid formId, List<CreateParameterReq> data)
+    {
+        logger.Log(LogLevel.Information, "Inserting parameters of form: {FormId}",
+            nameof(CreateFormParameters), formId);
+
+        // Validation
+        var form = await unitOfWork.Form.GetById(formId) ?? throw new FormNotFoundException();
+    }
+}
+//------------------------------------ unitOfWork interface
+public interface IUnitOfWork : IBaseUnitOfWork
+{
+    public IFormRepository Form { get; }
+}  
+//------------------------------------ repository
+public class FormRepository(DataEntryDbContext dbContext) : IFormRepository
+{
+    public async Task<Form?> GetById(Guid id)
+    {
+        return await dbContext.Forms
+            .WithQueryName("Forms_GetById")
+            .AsActive()
+            .Where(f => f.Id == id)
+            .Include(f => f.Settings)
+            .Include(f => f.SubForms)
+            .ThenInclude(sf => sf.Parameters.Where(p => p.DeletedAtDateTime == null))
+            .ThenInclude(p => p.SpecialParameters.Where(sp => sp.DeletedAtDateTime == null))
+            .ThenInclude(sp => sp.Items)
+            .Include(f => f.Shift)
+            .Include(f => f.StatusFlow)
+            .ThenInclude(f => f.Statuses)
+            .Include(inc => inc.Parameters.Where(fps => fps.DeletedAtDateTime == null))
+            .ThenInclude(tin => tin.SpecialParameters.Where(sp => sp.DeletedAtDateTime == null))
+            .ThenInclude(tin => tin.Items)
+            .AsSplitQuery()
+            .FirstOrDefaultAsync();
+    }
+}
+//------------------------------------ dbContext
+public class DataEntryDbContext(
+    ICoreAuthorizationHandler authorizationHandler,
+    DbContextOptions<DataEntryDbContext> options
+) : BaseDbContext<DataEntryDbContext>(authorizationHandler, options)
+{
+    public DbSet<Form> Forms { get; set; }
+}
+//------------------------------------ domain
+public class Form : AggregateRoot, ICloneable, ISearchable
+{
+    //...
+}
+```
