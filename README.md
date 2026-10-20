@@ -129,7 +129,7 @@ Src/
 │   ├── Controllers/                 ← HTTP, gRPC, WebSocket, MQTT endpoints
 │   ├── Hubs/                        ← SignalR / WebRTC if needed
 │   ├── Middlewares/
-│   ├── Extensions/                  ← DI registration, startup
+│   ├── Extensions/                  ← app utils, DI registration, startup
 │   └── Filters/
 ```
 
