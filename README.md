@@ -122,7 +122,7 @@ Src/
 │   ├── Data/
 │   ├── Search/                      ← Elasticsearch
 |   ├── Seeders/                     ← Data seeding; A startup backfill that synchronises an external read model: graph, access fields, localization or search.
-│   ├── BackgroundServices/          ← Workers, Pollers, Saga coordinators, IHostedService
+│   ├── BackgroundServices/          ← Workers, Pollers, Saga coordinators, IHostedService, BackgroundService
 │   └── Services/            ← HTTP clients, MessageBrokerService: IMessageBroker like RMQ impl IJobq
 
 ├── Framework/ (or Api / Presentation)
